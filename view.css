@@ -1,0 +1,8 @@
+.overview {
+    border-collapse: collapse;
+}
+
+.overview td {
+    padding: 5px;
+    width: 50%;
+}
