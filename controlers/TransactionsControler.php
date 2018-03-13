@@ -41,8 +41,11 @@ class TransactionsController {
         $articles = $this->context->retrieve_rows(
             $this->context->perform_query(
                 "SELECT amount, DATE_FORMAT(created_on, '%d %M, %Y') AS created_on
-                FROM transactions
-                ORDER BY created_on DESC"
+                FROM (
+                    SELECT amount, created_on
+                    FROM transactions
+                    ORDER BY created_on DESC
+                ) AS temp_transactions"
             )
         );
 
